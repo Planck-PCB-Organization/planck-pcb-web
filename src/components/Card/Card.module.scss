@@ -1,0 +1,9 @@
+@import "/src/index.scss";
+
+.card-wrapper {
+  padding: 20px;
+  background: getColor("white");
+  color: getColor("black");
+  border-radius: 12px;
+  width: 75%;
+}
