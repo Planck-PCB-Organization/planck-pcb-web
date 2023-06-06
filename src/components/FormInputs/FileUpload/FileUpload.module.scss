@@ -1,0 +1,25 @@
+@import "src/index.scss";
+
+.file-upload {
+  position: relative;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 16px 24px;
+  width: fit-content;
+  gap: 8px;
+  background-color: lighten(getColor("primary"), 50%);
+  color: getColor("black");
+  &:hover {
+    border-color: #999;
+  }
+  input {
+    display: none;
+  }
+}
