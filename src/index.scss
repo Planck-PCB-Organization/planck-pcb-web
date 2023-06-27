@@ -26,22 +26,40 @@
 $colors: (
   "black": #131515ff,
   "sub": #2b2c28ff,
-  "primary": #327999ff,
-  "secondary": #7dc8e3ff,
   "white": #fffafbff,
+  "primary": #2b8ced,
+  "secondary": #2b8cef,
+  "third": #00b4d8ff,
+  "fourth": #90e0efff,
+  "fifth": #caf0f8ff,
+  "error": #dc3545,
+  "success": #28a745,
+  "warning": #ffc107,
+  "info": #6c757d,
+  "light": #f8f9fa,
+  "dark": #343a40,
 );
+
+$shadows: (
+  "low": rgba(17, 12, 46, 0.15) 0px 48px 100px 0px,
+  "medium": rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+  "high": rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+);
+
+@function getShadows($shadow) {
+  @return map-get($shadows, $shadow);
+}
 
 // Dışardan kullanabileceğimiz bir getColor fonksiyonu oluşturuyoruz.
 // Bu fonksiyonu kullanarak renkleri değiştirebiliriz.
 // Örneğin: background-color: getColor($night);
-
 @function getColor($color) {
   @return map-get($colors, $color);
 }
 
 body {
-  color: getColor("white");
-  background-color: getColor("black");
+  color: getColor("black");
+  background-color: getColor("white");
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -51,15 +69,6 @@ body {
     width: 100%;
     height: 100%;
   }
-}
-
-.card-form {
-  position: absolute;
-  right: 12.5%;
-  bottom: 0;
-  transform: translateY(50%);
-  height: 200px;
-  z-index: 1;
 }
 
 .control-dots {

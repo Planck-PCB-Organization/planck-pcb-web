@@ -1,3 +1,6 @@
+@import "/src/index.scss";
+
 .section-wrapper {
   position: relative;
+  background-color: getColor("white");
 }

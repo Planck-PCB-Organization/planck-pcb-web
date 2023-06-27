@@ -16,6 +16,7 @@ const Layout = (props: LayoutProps) => {
           { id: "#section-1", title: "Section 1" },
           { id: "#section-2", title: "Section 2" },
           { id: "#section-3", title: "Section 3" },
+          { id: "#section-4", title: "Section 4" },
         ]}
       />
       <Content>{children}</Content>

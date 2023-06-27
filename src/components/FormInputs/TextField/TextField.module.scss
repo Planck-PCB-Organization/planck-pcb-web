@@ -15,7 +15,7 @@
   font-weight: 500;
   line-height: 1;
   color: #495057;
-  background-color: #fff;
+  background-color: getColor("white");
 
   label {
     color: getColor("black");
@@ -28,7 +28,7 @@
   border: 1px solid #ced4da;
   border-radius: 4px;
   transition: border-color 0.15s ease-in-out;
-  background-color: #fff;
+  background-color: getColor("white");
   border: 1px solid getColor("primary");
   outline: none;
   color: getColor("black");
@@ -38,7 +38,21 @@
   }
 
   &::placeholder {
-    color: #6c757d;
+    color: getColor("sub");
     opacity: 1;
+  }
+}
+
+.error {
+  color: getColor("error");
+  .input {
+    border-color: getColor("error");
+    &::placeholder {
+      color: getColor("error");
+    }
+  }
+
+  label {
+    color: getColor("error");
   }
 }

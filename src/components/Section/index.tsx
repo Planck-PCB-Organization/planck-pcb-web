@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Section.module.scss";
+import clsx from "clsx";
 
 interface SectionProps {
   id: string;
@@ -7,14 +8,14 @@ interface SectionProps {
   description?: string;
   children: React.ReactNode;
   style?: React.CSSProperties;
+  className?: string;
 }
 
 const Section: React.FC<SectionProps> = ({
   id,
-  title,
-  description,
   children,
   style,
+  className,
 }) => {
   return (
     <section
@@ -22,10 +23,8 @@ const Section: React.FC<SectionProps> = ({
         ...style,
       }}
       id={id}
-      className={styles["section-wrapper"]}
+      className={clsx(styles["section-wrapper"], className)}
     >
-      <h2>{title}</h2>
-      <p>{description}</p>
       {children}
     </section>
   );
