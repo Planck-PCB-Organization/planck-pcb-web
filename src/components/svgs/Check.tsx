@@ -1,4 +1,3 @@
-import React from "react";
 import { SvgProps } from "../../types/svgTypes";
 import clsx from "clsx";
 
