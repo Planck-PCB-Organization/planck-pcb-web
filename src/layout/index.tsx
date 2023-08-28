@@ -11,7 +11,7 @@ const Layout = (props: LayoutProps) => {
     <>
       <Header
         id="header"
-        logo="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+        logo="src/assets/siriusPCB-logo.png"
         navLinks={[
           { id: "#section-1", title: "Section 1" },
           { id: "#section-2", title: "Section 2" },

@@ -57,15 +57,15 @@ const QuetoForm = () => {
         axis="horizontal"
         centerMode={false}
       >
-        {Array.from({ length: 10 }).map((_, index) => (
+        {Array.from({ length: 3 }).map((_, index) => (
           <div key={index}>
             <img
               style={{
                 objectFit: "fill",
-                maxHeight: "540px",
+                maxHeight: "740px",
               }}
               alt="carousel"
-              src={`https://picsum.photos/seed/${index}/800/400`}
+              src={`src/assets/${index}.jpg`}
             />
           </div>
         ))}
