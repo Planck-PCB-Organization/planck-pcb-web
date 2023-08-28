@@ -11,7 +11,7 @@ const LandingPage = () => {
       <About />
       <Products />
       <Order />
-      <Footer />
+      {/*<Footer />*/}
     </>
   );
 };
