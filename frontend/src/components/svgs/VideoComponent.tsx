@@ -1,6 +1,10 @@
-import React, { useState, useEffect } from 'react';
-
-const VideoComponent = ({ onVideoEnd }) => {
+import {useState, useEffect} from 'react';
+interface ContentProps {
+    onVideoEnd : React.ReactNode
+    // any props that come into the component
+}
+const VideoComponent = ( props: ContentProps ) => {
+    const { onVideoEnd } = props;
     const [isOpen, setIsOpen] = useState(true);
     const [resetKey, setResetKey] = useState(0);
 
@@ -13,7 +17,8 @@ const VideoComponent = ({ onVideoEnd }) => {
 
     const handleVideoEnd = () => {
         setIsOpen(false);
-        onVideoEnd(); // Video bittiğinde yapılacak işlemler
+        console.log(onVideoEnd)
+        // Aprops(); // Video bittiğinde yapılacak işlemler
     };
 
     const disableScroll = () => {

@@ -66,6 +66,98 @@
 					<skipTests>true</skipTests>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.6.0</version>
+				<executions>
+					<execution>
+						<id>npm-install</id>
+
+						<goals>
+							<goal>exec</goal>
+						</goals>
+
+						<phase>prepare-package</phase>
+
+						<configuration>
+							<executable>npm</executable>
+							<arguments>
+								<argument>install</argument>
+								<argument>--no-audit</argument>
+							</arguments>
+							<workingDirectory>D:\Project\solaris\frontend</workingDirectory>
+						</configuration>
+
+					</execution>
+<!--					<execution>-->
+<!--						<id>npm-test</id>-->
+
+<!--						<goals>-->
+<!--							<goal>exec</goal>-->
+<!--						</goals>-->
+
+<!--						<phase>prepare-package</phase>-->
+
+<!--						<configuration>-->
+<!--							<executable>npm</executable>-->
+<!--							<arguments>-->
+<!--								<argument>test</argument>-->
+<!--								<argument>&#45;&#45;</argument>-->
+<!--								<argument>&#45;&#45;watchAll=false</argument>-->
+<!--							</arguments>-->
+<!--							<workingDirectory>D:\Project\solaris\frontend</workingDirectory>-->
+<!--							<environmentVariables>-->
+<!--								<CI>true</CI>-->
+<!--							</environmentVariables>-->
+<!--						</configuration>-->
+
+<!--					</execution>-->
+					<execution>
+						<id>npm-run-build</id>
+
+						<goals>
+							<goal>exec</goal>
+						</goals>
+
+						<phase>prepare-package</phase>
+
+						<configuration>
+							<executable>npm</executable>
+							<arguments>
+								<argument>run</argument>
+								<argument>build</argument>
+							</arguments>
+							<workingDirectory>D:\Project\solaris\frontend</workingDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>3.1.0</version>
+
+				<executions>
+					<execution>
+						<id>copy-react-build</id>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<phase>prepare-package</phase>
+						<configuration>
+							<outputDirectory>${project.build.outputDirectory}/static</outputDirectory>
+							<resources>
+								<resource>
+									<directory>D:\Project\solaris\frontend/build</directory>
+									<filtering>false</filtering>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 
