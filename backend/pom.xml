@@ -128,7 +128,7 @@
 								<argument>run</argument>
 								<argument>build</argument>
 							</arguments>
-							<workingDirectory>D:\Project\solaris\frontend</workingDirectory>
+							<workingDirectory>frontend</workingDirectory>
 						</configuration>
 					</execution>
 				</executions>
