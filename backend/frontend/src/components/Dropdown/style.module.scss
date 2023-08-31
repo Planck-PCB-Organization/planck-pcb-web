@@ -1,0 +1,57 @@
+@import "/src/index.scss";
+
+.dropdown-container {
+  position: relative;
+
+  .dropdown-toggle {
+    padding: 0.5rem 0.75rem;
+    padding-right: 1.625rem;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    transition: border-color 0.15s ease-in-out;
+    background-color: getColor("white");
+    border: 1px solid getColor("primary");
+    outline: none;
+    color: getColor("black");
+    cursor: pointer;
+
+    &:focus {
+      border-color: getColor("secondary");
+    }
+
+    svg {
+      position: absolute;
+      right: 0.313rem;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    transform: translateY(5%);
+    width: 100%;
+    background-color: getColor("white");
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    li {
+      width: 100%;
+      padding: 0.5rem;
+      cursor: pointer;
+      font-size: 0.875rem;
+      color: getColor("black");
+      transition: background-color 0.15s ease-in-out;
+      white-space: pre-wrap;
+      &:hover {
+        background-color: getColor("primary");
+        color: getColor("white");
+      }
+    }
+  }
+}

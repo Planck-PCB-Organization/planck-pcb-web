@@ -1,0 +1,20 @@
+@import "/src/index.scss";
+
+.card-wrapper {
+  padding: 20px;
+  background: getColor("white");
+  color: getColor("black");
+  border-radius: 12px;
+}
+
+.card-shadow-low {
+  box-shadow: getShadows("low");
+}
+
+.card-shadow-medium {
+  box-shadow: getShadows("medium");
+}
+
+.card-shadow-high {
+  box-shadow: getShadows("high");
+}
