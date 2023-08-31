@@ -86,7 +86,7 @@
 								<argument>install</argument>
 								<argument>--no-audit</argument>
 							</arguments>
-							<workingDirectory>D:\Project\solaris\frontend</workingDirectory>
+							<workingDirectory>frontend</workingDirectory>
 						</configuration>
 
 					</execution>
