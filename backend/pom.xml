@@ -150,7 +150,7 @@
 							<outputDirectory>${project.build.outputDirectory}/static</outputDirectory>
 							<resources>
 								<resource>
-									<directory>D:\Project\solaris\frontend/build</directory>
+									<directory>frontend/build</directory>
 									<filtering>false</filtering>
 								</resource>
 							</resources>
