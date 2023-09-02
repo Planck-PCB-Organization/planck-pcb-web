@@ -8,7 +8,7 @@ export default defineConfig({
     port: 3000,
     proxy: {
       '/books': {
-        target: 'http://localhost:8081', // Değiştirilmesi gereken hedef URL
+        target: 'http://localhost:3000', // Değiştirilmesi gereken hedef URL
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/books/, ''),
       },
