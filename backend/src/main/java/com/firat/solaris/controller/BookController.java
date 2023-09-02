@@ -11,7 +11,7 @@ import java.util.List;
 @RestController
 public class BookController {
 
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = "https://www.siriuspcb.com:3000")
     @GetMapping("/books")
     public List<Book> getBooks() {
         return Arrays.asList(new Book(1, "Core Java"), new Book(2, "Effective Java"), new Book(3, "Head First Java"));
