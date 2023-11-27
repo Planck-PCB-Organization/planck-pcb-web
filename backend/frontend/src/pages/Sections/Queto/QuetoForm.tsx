@@ -41,7 +41,7 @@ const QuetoForm = () => {
 
   const [selectedLayer, setSelectedLayer] = useState<number>(1);
 
-  const layers = [1, 2, 4, 6];
+  const layers = [1, 2];
 
   return (
     <Section id="section-1">
@@ -90,7 +90,7 @@ const QuetoForm = () => {
                 />
               )}
             />
-
+              <label>PCB Katman Sayısı: &nbsp;</label>
             <div
               style={{
                 display: "flex",
@@ -145,6 +145,7 @@ const QuetoForm = () => {
                 )}
               />
             </InputGroup>
+              <label>Adet: &nbsp;</label>
 
             <Dropdown
               onSelect={(value) => console.log(value)}
@@ -160,12 +161,70 @@ const QuetoForm = () => {
               ]}
             />
 
-            <Button color="primary" onClick={() => navigate("/queto")}>
+            <Button className={styles["generate-button"]} color="primary" onClick={() => navigate("/queto")}>
               <span>Generate</span>
             </Button>
           </div>
         </form>
       </Card>
+        <Card className={styles["card-form-3d"]} shadow="high">
+            <form
+                onSubmit={handleSubmit((d) => console.log(d))}
+                style={{
+                    height: "100%",
+                }}
+            >
+                <div className={styles["queto-form-container"]}>
+                    <Controller
+                        name="file"
+                        control={control}
+                        render={({ field }) => (
+                            <FileUpload
+                                id="file-upload"
+                                name="file"
+                                label="Add Stl File"
+                                onChange={field.onChange}
+                            />
+                        )}
+                    />
+                    <label>Adet: &nbsp;</label>
+
+
+                    <Dropdown
+                        onSelect={(value) => console.log(value)}
+                        options={[
+                            {
+                                value: "1",
+                                label: "1",
+                            },
+                            {
+                                value: "2",
+                                label: "2",
+                            },
+                        ]}
+                    />
+                    <label>Dolgunluk: &nbsp;</label>
+
+                    <Dropdown
+                        onSelect={(value) => console.log(value)}
+                        options={[
+                            {
+                                value: "1",
+                                label: "1",
+                            },
+                            {
+                                value: "2",
+                                label: "2",
+                            },
+                        ]}
+                    />
+
+                    <Button className={styles["generate-button"]}  color="primary" onClick={() => navigate("/queto")}>
+                        <span>Generate</span>
+                    </Button>
+                </div>
+            </form>
+        </Card>
     </Section>
   );
 };

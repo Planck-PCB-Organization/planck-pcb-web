@@ -8,10 +8,13 @@ export default defineConfig({
     port: 3000,
     proxy: {
       '/books': {
-        target: 'https://siriuspcb.com', // Değiştirilmesi gereken hedef URL
+        target: 'http://localhost:3001', // Değiştirilmesi gereken hedef URL
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/books/, ''),
       },
     },
+  },
+  optimizeDeps: {
+    include: ['react-stl-viewer'],
   },
 })

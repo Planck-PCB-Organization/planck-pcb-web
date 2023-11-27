@@ -7,14 +7,6 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
 
 const App = () => {
-    // const [showVideo, setShowVideo] = useState(true);
-
-    // const handleVideoEnd = () => {
-    //     setShowVideo(false);
-    //     console.log(showVideo);
-    //     // Video bittiğinde yapılacak işlemler
-    // };
-
     const router = createBrowserRouter([
         {
             path: '/',

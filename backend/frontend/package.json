@@ -21,6 +21,9 @@
     "react-responsive-carousel": "^3.2.23",
     "react-router": "^6.14.0",
     "react-router-dom": "^6.14.0",
+    "react-stl-viewer": "^2.3.2",
+    "stl-viewer": "^0.12.0",
+    "three": "^0.158.0",
     "yup": "^1.2.0"
   },
   "devDependencies": {

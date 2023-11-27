@@ -138,7 +138,7 @@ const Order = () => {
 
   return (
     <Section id="section-4">
-      <Card className={styles["card-wrapper"]}>
+      <Card className={styles["card-wrapper","component-container"]}>
         <div className={styles["order-form-container"]}>
           <span className={styles["order-form-header"]}>
             <Chip width={30} height={30} /> PCB Spesifikasyon Seçimi
@@ -560,6 +560,13 @@ const Order = () => {
               />
             </span>
           </form>
+        </div>
+        <div className={styles["right-sidebar"]}>
+          <div className={styles["input-area"]}>
+            <label>Yeni Alan:</label>
+            <input type="text" />
+          </div>
+          <button className={styles["new-button"]}>Yeni Buton</button>
         </div>
       </Card>
     </Section>

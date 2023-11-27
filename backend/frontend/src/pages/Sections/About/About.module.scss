@@ -11,7 +11,18 @@
   align-items: center;
   justify-content: space-between;
 }
-
+.about-container2 {
+  img {
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+  }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  //left:  0%;
+}
 .about-description {
   display: flex;
   flex-direction: column;

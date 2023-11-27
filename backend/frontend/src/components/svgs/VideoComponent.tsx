@@ -1,9 +1,11 @@
-import {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
+
 interface ContentProps {
-    onVideoEnd : React.ReactNode
-    // any props that come into the component
+    onVideoEnd: React.ReactNode;
+    // Diğer bileşenlere geçirilmek istenen özellikler
 }
-const VideoComponent = ( props: ContentProps ) => {
+
+const VideoComponent = (props: ContentProps) => {
     const { onVideoEnd } = props;
     const [isOpen, setIsOpen] = useState(true);
     const [resetKey, setResetKey] = useState(0);
@@ -11,27 +13,27 @@ const VideoComponent = ( props: ContentProps ) => {
     useEffect(() => {
         if (!isOpen) {
             setResetKey((prevKey) => prevKey + 1);
-            enableScroll(); // Kaydırmayı yeniden etkinleştir
+            enableScroll();
         }
     }, [isOpen]);
 
     const handleVideoEnd = () => {
-        setIsOpen(false);
-        console.log(onVideoEnd)
-        // Aprops(); // Video bittiğinde yapılacak işlemler
+        // Video tamamlandığında sadece tekrar oynatın
+        // Diğer işlemleri burada ekleyebilirsiniz.
+        console.log(onVideoEnd);
     };
 
     const disableScroll = () => {
-        document.body.style.overflow = 'hidden'; // Kaydırmayı devre dışı bırak
+        document.body.style.overflow = 'hidden';
     };
 
     const enableScroll = () => {
-        document.body.style.overflow = 'auto'; // Kaydırmayı etkinleştir
+        document.body.style.overflow = 'auto';
     };
 
     useEffect(() => {
-        disableScroll(); // İlk renderda kaydırmayı devre dışı bırak
-        return () => enableScroll(); // Komponent temizlenirken kaydırmayı etkinleştir
+        disableScroll();
+        return () => enableScroll();
     }, []);
 
     return (
@@ -42,10 +44,11 @@ const VideoComponent = ( props: ContentProps ) => {
                     controls={false}
                     autoPlay
                     onEnded={handleVideoEnd}
-
+                    loop
+                    muted // Sesin kapalı olması için "muted" eklenir
                     style={{ width: '100vw', height: '100vh', objectFit: 'cover' }}
                 >
-                    <source src="src/assets/adsao.mp4" type="video/mp4" />
+                    <source src="src/assets/adsa.mp4" type="video/mp4" />
                 </video>
             )}
         </div>

@@ -1,19 +1,28 @@
 package com.firat.solaris.controller;
 
 
+import com.firat.solaris.EmailSender;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.mail.MessagingException;
 import java.util.Arrays;
 import java.util.List;
 
 @RestController
 public class BookController {
 
-    @CrossOrigin(origins = "https://siriuspcb.com:3000")
+//    @Autowired
+//    private EmailSender emailSender;
+
+    @CrossOrigin(origins = "https://localhost:3000")
     @GetMapping("/books")
-    public List<Book> getBooks() {
+    public List<Book> getBooks() throws MessagingException {
+        EmailSender emailSender = new EmailSender();
+        emailSender.sendEmail();
+
         return Arrays.asList(new Book(1, "Core Java"), new Book(2, "Effective Java"), new Book(3, "Head First Java"));
     }
 }

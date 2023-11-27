@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BOOK_API_REST_URL = "https://siriuspcb.com/books";
+const BOOK_API_REST_URL = "http://localhost:3001/books";
 
 class APIService {
 
