@@ -8,6 +8,7 @@ class PlanckApplicationTests {
 
 	@Test
 	void contextLoads() {
+		//
 	}
 
 }
