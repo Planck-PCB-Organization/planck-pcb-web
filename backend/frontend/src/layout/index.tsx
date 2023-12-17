@@ -11,12 +11,13 @@ const Layout = (props: LayoutProps) => {
     <>
       <Header
         id="header"
-        logo="src/assets/PLANCK_LOGO.png"
+        logo="/PLANCK_LOGO.png"
         navLinks={[
-          { id: "#section-1", title: "Section 1" },
-          { id: "#section-2", title: "Section 2" },
-          { id: "#section-3", title: "Section 3" },
-          { id: "#section-4", title: "Section 4" },
+          { id: "#section-1", title: "Anaddddsayfa" },
+          { id: "#section-2", title: "Hakkımızda" },
+          { id: "#section-3", title: "Hizmetlerimiz" },
+          { id: "#section-4", title: "Sipariş Ver" },
+          { id: "#section-5", title: "İletişim" },
         ]}
       />
       <Content>{children}</Content>

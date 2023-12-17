@@ -58,7 +58,7 @@ const About = () => {
                     </div>
                     <img onMouseLeave={handleMouseLeave}
                          alt="carousel"
-                         src={`src/assets/1.jpg`}
+                         src={`/1.jpg`}
                     />
                 </Section>
             )}

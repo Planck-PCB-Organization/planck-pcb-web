@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.firat</groupId>
-	<artifactId>solaris</artifactId>
+	<artifactId>planck</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>solaris</name>
+	<name>planck</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
@@ -112,7 +112,7 @@
 <!--								<argument>&#45;&#45;</argument>-->
 <!--								<argument>&#45;&#45;watchAll=false</argument>-->
 <!--							</arguments>-->
-<!--							<workingDirectory>D:\Project\solaris\frontend</workingDirectory>-->
+<!--							<workingDirectory>D:\Project\planck\frontend</workingDirectory>-->
 <!--							<environmentVariables>-->
 <!--								<CI>true</CI>-->
 <!--							</environmentVariables>-->

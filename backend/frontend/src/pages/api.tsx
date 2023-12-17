@@ -1,13 +1,28 @@
 import axios from 'axios';
 
-const BOOK_API_REST_URL = "http://localhost:3001/books";
+const API_REST_BASE_URL= "http://localhost:3001/";
 
 class APIService {
 
-    getBooks(){
-        return axios.get(BOOK_API_REST_URL);
+    getBooks() {
+        return axios.get(API_REST_BASE_URL + "sendMail")
+            .then((response) => {
+                console.log(response.data);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
     }
-
+    addBook(bookData:number|string) {
+        // return axios.post(API_REST_BASE_URL + "calculatePrice", bookData);
+        return axios.post(API_REST_BASE_URL + "calculatePrice",bookData)
+            .then((response) => {
+                console.log(response.data);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    }
 }
 
 export default new APIService();

@@ -2,7 +2,6 @@ import { Controller, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import TextField from "../../../components/FormInputs/TextField";
-import FileUpload from "../../../components/FormInputs/FileUpload";
 import Button from "../../../components/Button";
 import { useState } from "react";
 import InputGroup from "../../../components/FormInputs/InputGroup";
@@ -14,7 +13,7 @@ import { Carousel } from "react-responsive-carousel";
 import Card from "../../../components/Card";
 
 type Inputs = {
-  file: File | null;
+  // file?: File;
   height: number;
   width: number;
 };
@@ -22,7 +21,7 @@ type Inputs = {
 const schema = yup
   .object()
   .shape({
-    file: yup.mixed().required("Please upload a file"),
+    // file: yup.mixed().required("Please upload a file"),
     height: yup.number().required("Please enter a height"),
     width: yup.number().required("Please enter a width"),
   })
@@ -42,6 +41,11 @@ const QuetoForm = () => {
   const [selectedLayer, setSelectedLayer] = useState<number>(1);
 
   const layers = [1, 2];
+
+    const options = Array.from({length: 20}, (_, index) => ({
+        value: (index + 1).toString(),
+        label: (index + 1).toString(),
+    }));
 
   return (
     <Section id="section-1">
@@ -65,7 +69,7 @@ const QuetoForm = () => {
                 maxHeight: "740px",
               }}
               alt="carousel"
-              src={`src/assets/${index}.jpg`}
+              src={`/${index}.jpg`}
             />
           </div>
         ))}
@@ -78,18 +82,18 @@ const QuetoForm = () => {
           }}
         >
           <div className={styles["queto-form-container"]}>
-            <Controller
-              name="file"
-              control={control}
-              render={({ field }) => (
-                <FileUpload
-                  id="file-upload"
-                  name="file"
-                  label="Add Gerber File"
-                  onChange={field.onChange}
-                />
-              )}
-            />
+            {/*<Controller*/}
+            {/*  name="file"*/}
+            {/*  control={control}*/}
+            {/*  render={({ field }) => (*/}
+            {/*    <FileUpload*/}
+            {/*      id="file-upload"*/}
+            {/*      name="file"*/}
+            {/*      label="Add Gerber File"*/}
+            {/*      onChange={field.onChange}*/}
+            {/*    />*/}
+            {/*  )}*/}
+            {/*/>*/}
               <label>PCB Katman Sayısı: &nbsp;</label>
             <div
               style={{
@@ -147,19 +151,10 @@ const QuetoForm = () => {
             </InputGroup>
               <label>Adet: &nbsp;</label>
 
-            <Dropdown
-              onSelect={(value) => console.log(value)}
-              options={[
-                {
-                  value: "1",
-                  label: "1",
-                },
-                {
-                  value: "2",
-                  label: "2",
-                },
-              ]}
-            />
+              <Dropdown
+                  onSelect={(value) => console.log(value)}
+                  options={options}
+              />
 
             <Button className={styles["generate-button"]} color="primary" onClick={() => navigate("/queto")}>
               <span>Generate</span>
@@ -175,18 +170,18 @@ const QuetoForm = () => {
                 }}
             >
                 <div className={styles["queto-form-container"]}>
-                    <Controller
-                        name="file"
-                        control={control}
-                        render={({ field }) => (
-                            <FileUpload
-                                id="file-upload"
-                                name="file"
-                                label="Add Stl File"
-                                onChange={field.onChange}
-                            />
-                        )}
-                    />
+                    {/*<Controller*/}
+                    {/*    name="file"*/}
+                    {/*    control={control}*/}
+                    {/*    render={({ field }) => (*/}
+                    {/*        <FileUpload*/}
+                    {/*            id="file-upload"*/}
+                    {/*            name="file"*/}
+                    {/*            label="Add Stl File"*/}
+                    {/*            onChange={field.onChange}*/}
+                    {/*        />*/}
+                    {/*    )}*/}
+                    {/*/>*/}
                     <label>Adet: &nbsp;</label>
 
 

@@ -2,6 +2,8 @@
 
 .order-form {
   &-container {
+    margin-top:50px ;
+    margin-bottom:100px ;
   }
 
   &-header {
@@ -52,10 +54,12 @@
 /* Sağ taraftaki genel konteyner */
 .right-sidebar {
   background-color: #f2f2f2;
-  padding: 10px;
+  padding: 30px;
   border: 1px solid #ddd;
   border-radius: 5px;
-  margin: 10px;
+  //margin: 10px;
+  margin-left: 200px;
+  margin-top: -300px;
 }
 
 /* Giriş alanı stillemesi */
@@ -84,9 +88,31 @@
   cursor: pointer;
   font-weight: bold;
   transition: background-color 0.2s;
-
+  height: 50px;
+  width:200px;
+  margin-top: 70px;
   &:hover {
     background-color: #0056b3;
+  }
+}
+.input {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  transition: border-color 0.15s ease-in-out;
+  background-color: getColor("white");
+  border: 1px solid getColor("primary");
+  outline: none;
+  color: getColor("black");
+
+  &:focus {
+    border-color: getColor("secondary");
+  }
+
+  &::placeholder {
+    color: getColor("sub");
+    opacity: 1;
   }
 }
 

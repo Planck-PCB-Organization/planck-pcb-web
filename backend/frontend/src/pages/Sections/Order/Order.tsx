@@ -21,8 +21,9 @@ import {
 import Button from "../../../components/Button";
 import InputGroup from "../../../components/FormInputs/InputGroup";
 import TextField from "../../../components/FormInputs/TextField";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
+// import { yupResolver } from "@hookform/resolvers/yup";
+// import * as yup from "yup";
+import api from "../../api";
 
 interface OrderForm {
   pcb_type: {
@@ -83,34 +84,34 @@ interface OrderForm {
   };
 }
 
-const schema = yup
-  .object()
-  .shape({
-    pcb_type: yup.object().required("Lütfen bir tahta tipi seçiniz"),
-    height: yup.number().required("Lütfen bir yükseklik giriniz"),
-    width: yup.number().required("Lütfen bir genişlik giriniz"),
-    different_design: yup.object().required("Lütfen bir tasarım seçiniz"),
-    unit: yup.string().required("Lütfen bir birim seçiniz"),
-    amount: yup.number().required("Lütfen bir miktar giriniz"),
-    layers: yup.object().required("Lütfen katman sayısı seçiniz"),
-    material: yup.object().required("Lütfen bir malzeme seçiniz"),
-    fr4_tg: yup.object().required("Lütfen bir TG seçiniz"),
-    tickness: yup.object().required("Lütfen bir kalınlık seçiniz"),
-    minimum_trace_width: yup
-      .object()
-      .required("Lütfen bir minimum iz genişliği seçiniz"),
-    minimum_hole_size: yup
-      .object()
-      .required("Lütfen bir minimum delik çapı seçiniz"),
-    soldermask: yup.object().required("Lütfen bir lehim maskesi seçiniz"),
-    serigraphy: yup.object().required("Lütfen bir serigrafi seçiniz"),
-    surface: yup.object().required("Lütfen bir yüzey işlemi seçiniz"),
-    via_transaction: yup.object().required("Lütfen bir via işlemi seçiniz"),
-    copper_thickness: yup
-      .object()
-      .required("Lütfen bir bakır kalınlığı seçiniz"),
-  })
-  .required();
+// const schema = yup
+//   .object()
+//   .shape({
+//     pcb_type: yup.object().required("Lütfen bir tahta tipi seçiniz"),
+//     height: yup.number().required("Lütfen bir yükseklik giriniz"),
+//     width: yup.number().required("Lütfen bir genişlik giriniz"),
+//     different_design: yup.object().required("Lütfen bir tasarım seçiniz"),
+//     unit: yup.string().required("Lütfen bir birim seçiniz"),
+//     amount: yup.number().required("Lütfen bir miktar giriniz"),
+//     layers: yup.object().required("Lütfen katman sayısı seçiniz"),
+//     material: yup.object().required("Lütfen bir malzeme seçiniz"),
+//     fr4_tg: yup.object().required("Lütfen bir TG seçiniz"),
+//     tickness: yup.object().required("Lütfen bir kalınlık seçiniz"),
+//     minimum_trace_width: yup
+//       .object()
+//       .required("Lütfen bir minimum iz genişliği seçiniz"),
+//     minimum_hole_size: yup
+//       .object()
+//       .required("Lütfen bir minimum delik çapı seçiniz"),
+//     soldermask: yup.object().required("Lütfen bir lehim maskesi seçiniz"),
+//     serigraphy: yup.object().required("Lütfen bir serigrafi seçiniz"),
+//     surface: yup.object().required("Lütfen bir yüzey işlemi seçiniz"),
+//     via_transaction: yup.object().required("Lütfen bir via işlemi seçiniz"),
+//     copper_thickness: yup
+//       .object()
+//       .required("Lütfen bir bakır kalınlığı seçiniz"),
+//   })
+//   .required();
 
 const Order = () => {
   const { handleSubmit, control } = useForm<OrderForm>({
@@ -133,12 +134,24 @@ const Order = () => {
       via_transaction: VIA_TRANSACTIONS[0],
       copper_thickness: COPPER_THICKNESS[0],
     },
-    resolver: yupResolver(schema),
+    // resolver: yupResolver(null),
   });
 
+  // const { control } = useForm();
+
+  const handleChange = async (newHeight: string | number) => {
+    // Use Axios to send PUT request with updated height to backend
+    try {
+      console.log(newHeight)
+      await api.addBook(12);
+    } catch (error) {
+      // Handle error
+    }
+  };
+
   return (
-    <Section id="section-4">
-      <Card className={styles["card-wrapper","component-container"]}>
+    <Section className={styles.orderForm} id="section-4">
+      <Card className={styles["component-container"]}>
         <div className={styles["order-form-container"]}>
           <span className={styles["order-form-header"]}>
             <Chip width={30} height={30} /> PCB Spesifikasyon Seçimi
@@ -216,7 +229,11 @@ const Order = () => {
                         id="height"
                         label="Height"
                         value={value}
-                        onChange={onChange}
+                        // onChange={onChange}
+                        onChange={(event) => {
+                          onChange(onChange);
+                          handleChange(event);
+                        }}
                         type="number"
                         error={error?.message}
                       />
@@ -561,13 +578,53 @@ const Order = () => {
             </span>
           </form>
         </div>
-        <div className={styles["right-sidebar"]}>
+        <Card className={styles["right-sidebar"]}>
           <div className={styles["input-area"]}>
-            <label>Yeni Alan:</label>
-            <input type="text" />
+            {/*<Controller*/}
+            {/*    name="file"*/}
+            {/*    control={control}*/}
+            {/*    render={({ field }) => (*/}
+            {/*        <FileUpload*/}
+            {/*            id="file-upload"*/}
+            {/*            name="file"*/}
+            {/*            label="Add Gerber File"*/}
+            {/*            onChange={field.onChange}*/}
+            {/*        />*/}
+            {/*    )}*/}
+            {/*/>*/}
+            <br></br>
+            <br></br>
+            <label>Fiyat</label>
+            <br></br>
+            <br></br>
+            <label>Ücretsiz kargo</label>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            {/*<input type="text" />*/}
+            <label>Mail</label>
+
+            <input
+                id="amount"
+            />
+            <br></br>
+            <label>Telefon</label>
+
+            <input
+                id="amount"
+            />
+            <br></br>
+            <label>Adres</label>
+
+            <input
+                id="amount"
+            />
+
           </div>
-          <button className={styles["new-button"]}>Yeni Buton</button>
-        </div>
+          <button onClick={api.getBooks} className={styles["new-button"]}>Sipariş ver</button>
+        </Card>
       </Card>
     </Section>
   );
